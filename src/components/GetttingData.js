@@ -6,20 +6,29 @@ const GettingData = () => {
     const [inputValue, setInputValue] = useState('');
     const [receivedData, setReceivedData] = useState({});
     
-    useEffect(()=> {
-        fetch(`https://api.github.com/users/${inputValue}`)   
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        setReceivedData(data);
-    })
-    }, [inputValue]);
+    // useEffect(()=> {
+    //     fetch(`https://api.github.com/users/${inputValue}`)   
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log(data);
+    //     setReceivedData(data);
+    // })
+    // }, [inputValue]);
     
     const handleSubmit = (event) => {
             event.preventDefault();
  
     };
     
+    const fetchData = () => {
+        fetch(`https://api.github.com/users/${inputValue}`)   
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        setReceivedData(data);
+    })
+    };
+
     const handleChange = (event) => {
         setInputValue(event.target.value);
     };
@@ -38,7 +47,7 @@ const GettingData = () => {
                 onChange={handleChange}
                 />
                 </label>
-                <button className="btn-user">Look for User</button>
+                <button onClick={fetchData} className="btn-user">Look for User</button>
                 </div>
             </form>
             </div>
