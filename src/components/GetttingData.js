@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import DisplayText from "./DisplayText";
 
 
 const GettingData = () => {
     const [inputValue, setInputValue] = useState('');
     const [receivedData, setReceivedData] = useState({});
-    
-    // useEffect(()=> {
-    //     fetch(`https://api.github.com/users/${inputValue}`)   
-    // .then(response => response.json())
-    // .then(data => {
-    //     console.log(data);
-    //     setReceivedData(data);
-    // })
-    // }, [inputValue]);
     
     const handleSubmit = (event) => {
             event.preventDefault();
